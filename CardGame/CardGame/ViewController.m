@@ -9,7 +9,8 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+@property (weak, nonatomic) IBOutlet UILabel *flipLabel;
+@property (nonatomic) NSUInteger flipCounts;
 @end
 
 @implementation ViewController
@@ -22,7 +23,12 @@
         [sender setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
         [sender setTitle:@"" forState:UIControlStateNormal];
     }
-    
+    self.flipCounts++;
+}
+
+- (void)setFlipCounts:(NSUInteger)flipCounts {
+    _flipCounts = flipCounts;
+    self.flipLabel.text = [NSString stringWithFormat:@"FlipCounts:%lu",(unsigned long)self.flipCounts];
 }
 
 
