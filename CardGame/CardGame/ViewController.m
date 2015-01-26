@@ -36,6 +36,11 @@
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d",self.game.score];
 }
 
+- (IBAction)startOver:(id)sender {
+    self.game = nil;
+    [self updateUI];
+}
+
 - (NSString *)titleForCard:(Card *)card {
     return card.isChosen ? card.contents : @"";
 }
