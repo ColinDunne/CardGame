@@ -15,6 +15,7 @@
 @property (strong, nonatomic) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *msgLabel;
 @property (nonatomic) NSInteger gameMode;
 @end
 
@@ -35,6 +36,7 @@
         cardButton.enabled = !card.isMatched;
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld",(long)self.game.score];
+    self.msgLabel.text = self.game.latestMessage;
 }
 
 - (IBAction)startOver:(id)sender {

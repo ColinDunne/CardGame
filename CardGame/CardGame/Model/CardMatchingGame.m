@@ -13,6 +13,7 @@
 @property (nonatomic,readwrite) NSInteger score;
 @property (nonatomic,readwrite) NSInteger mode;
 @property (strong,nonatomic) NSMutableArray *cards;
+@property (strong,nonatomic,readwrite) NSString *latestMessage;
 
 @end
 
@@ -54,6 +55,7 @@ static const int COST_TO_CHOOSE = 1;
 
 - (void)chooseCardAtIndex:(NSUInteger)index {
     Card *card = [self cardAtIndex:index];
+    self.latestMessage = nil;
     
     if (!card.isMatched) {
         if (card.isChosen) {
@@ -68,14 +70,23 @@ static const int COST_TO_CHOOSE = 1;
                             self.score += matchScore * MATCH_BONUS;
                             card.matched = YES;
                             otherCard.matched = YES;
+                            
+                            self.latestMessage = [NSString stringWithFormat:@"Matched %@ %@ for %d points", card.contents, otherCard.contents, matchScore * MATCH_BONUS];
                         } else {
                             self.score -= MISMATCH_PENALTY;
                             otherCard.chosen = NO;
+                            
+                            self.latestMessage = [NSString stringWithFormat:@"%@ %@ don't match! %d points penalty!", card.contents, otherCard.contents, MISMATCH_PENALTY];
                         }
                         break;
                     }
                 }
-                self.score -= COST_TO_CHOOSE;
+                
+                if (!self.latestMessage) {
+                    self.score -= COST_TO_CHOOSE;
+                    self.latestMessage = card.contents;
+                }
+                
             } else if (self.mode == THREE_CARD_MATCH_MODE) {
                 // match against other two cards
                 NSMutableArray *cardsToMatch = [[NSMutableArray alloc] initWithCapacity:2];
@@ -91,15 +102,22 @@ static const int COST_TO_CHOOSE = 1;
                             ((Card *)cardsToMatch[0]).matched = YES;
                             ((Card *)cardsToMatch[1]).matched = YES;
                             
+                            self.latestMessage = [NSString stringWithFormat:@"Matched %@ %@ %@ for %d points", card.contents,
+                                                  ((Card *)cardsToMatch[0]).contents, ((Card *)cardsToMatch[1]).contents, matchScore * MATCH_BONUS];
                             cardsToMatch = nil;
                         } else {
                             self.score -= MISMATCH_PENALTY * 2;
                             ((Card *)cardsToMatch[0]).chosen = NO;
                             ((Card *)cardsToMatch[1]).chosen = NO;
                             
+                            self.latestMessage = [NSString stringWithFormat:@"%@ %@ %@ don't match! %d points penalty!", card.contents,
+                                                  ((Card *)cardsToMatch[0]).contents, ((Card *)cardsToMatch[1]).contents, MISMATCH_PENALTY * 2];
                             cardsToMatch = nil;
                         }
                         break;
+                    } else {
+                        // don't have enough cards, can't start to match!
+                        self.latestMessage = card.contents;
                     }
                 }
             }

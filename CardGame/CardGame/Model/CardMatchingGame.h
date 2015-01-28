@@ -16,6 +16,8 @@
 
 @property (readonly,nonatomic) NSInteger mode;
 
+@property (strong,nonatomic,readonly) NSString *latestMessage;
+
 - (instancetype)initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck;
 
 - (instancetype)initWithCardCount:(NSUInteger)count andGameMode:(NSInteger)mode usingDeck:(Deck *)deck;
