@@ -66,7 +66,7 @@
     return _game;
 }
 
-- (Deck *) createDeck {
+- (Deck *)createDeck {
     return [[PlayingCardDeck alloc] init];
 }
 
