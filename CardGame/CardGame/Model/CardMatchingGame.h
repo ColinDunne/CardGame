@@ -14,7 +14,11 @@
 
 @property (readonly,nonatomic) NSInteger score;
 
+@property (readonly,nonatomic) NSInteger mode;
+
 - (instancetype)initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck;
+
+- (instancetype)initWithCardCount:(NSUInteger)count andGameMode:(NSInteger)mode usingDeck:(Deck *)deck;
 
 - (void)chooseCardAtIndex:(NSUInteger)index;
 
