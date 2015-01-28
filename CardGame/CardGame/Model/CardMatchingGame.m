@@ -71,12 +71,14 @@ static const int COST_TO_CHOOSE = 1;
                             card.matched = YES;
                             otherCard.matched = YES;
                             
-                            self.latestMessage = [NSString stringWithFormat:@"Matched %@ %@ for %d points", card.contents, otherCard.contents, matchScore * MATCH_BONUS];
+                            self.latestMessage = [NSString stringWithFormat:@"Matched %@ %@ for %d points",
+                                                  card.contents, otherCard.contents, matchScore * MATCH_BONUS];
                         } else {
                             self.score -= MISMATCH_PENALTY;
                             otherCard.chosen = NO;
                             
-                            self.latestMessage = [NSString stringWithFormat:@"%@ %@ don't match! %d points penalty!", card.contents, otherCard.contents, MISMATCH_PENALTY];
+                            self.latestMessage = [NSString stringWithFormat:@"%@ %@ don't match! %d points penalty!",
+                                                  card.contents, otherCard.contents, MISMATCH_PENALTY];
                         }
                         break;
                     }
