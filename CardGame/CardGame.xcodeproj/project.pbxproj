@@ -19,6 +19,7 @@
 		D0B5ED611A5C38BD00F70039 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B5ED601A5C38BD00F70039 /* PlayingCard.m */; };
 		D0B5ED641A5C40FC00F70039 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B5ED631A5C40FC00F70039 /* PlayingCardDeck.m */; };
 		D0B5ED671A5EBB1600F70039 /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B5ED661A5EBB1600F70039 /* CardMatchingGame.m */; };
+		D0D0EE221A8395CA0030F206 /* PlayingCardGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D0EE211A8395CA0030F206 /* PlayingCardGameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		D0B5ED631A5C40FC00F70039 /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCardDeck.m; path = Model/PlayingCardDeck.m; sourceTree = "<group>"; };
 		D0B5ED651A5EBB1600F70039 /* CardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMatchingGame.h; path = Model/CardMatchingGame.h; sourceTree = "<group>"; };
 		D0B5ED661A5EBB1600F70039 /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardMatchingGame.m; path = Model/CardMatchingGame.m; sourceTree = "<group>"; };
+		D0D0EE201A8395CA0030F206 /* PlayingCardGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardGameViewController.h; sourceTree = "<group>"; };
+		D0D0EE211A8395CA0030F206 /* PlayingCardGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardGameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 		D0B5ED311A5C163500F70039 /* CardGame */ = {
 			isa = PBXGroup;
 			children = (
+				D0D0EE201A8395CA0030F206 /* PlayingCardGameViewController.h */,
+				D0D0EE211A8395CA0030F206 /* PlayingCardGameViewController.m */,
 				D0B5ED391A5C163500F70039 /* ViewController.h */,
 				D0B5ED3A1A5C163500F70039 /* ViewController.m */,
 				D0B5ED3C1A5C163500F70039 /* Main.storyboard */,
@@ -260,6 +265,7 @@
 				D0B5ED641A5C40FC00F70039 /* PlayingCardDeck.m in Sources */,
 				D0B5ED351A5C163500F70039 /* main.m in Sources */,
 				D0B5ED5A1A5C212600F70039 /* Card.m in Sources */,
+				D0D0EE221A8395CA0030F206 /* PlayingCardGameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +458,7 @@
 				D0B5ED541A5C163500F70039 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0B5ED551A5C163500F70039 /* Build configuration list for PBXNativeTarget "CardGameTests" */ = {
 			isa = XCConfigurationList;
@@ -460,6 +467,7 @@
 				D0B5ED571A5C163500F70039 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
